@@ -1,3 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+use chillerlan\QRCode\QRCode;
+use chillerlan\QRCode\QROptions;
+
+require_once('vendor/autoload.php');
+
+$options = new QROptions(
+  [
+    'eccLevel' => QRCode::ECC_L,
+    'outputType' => QRCode::OUTPUT_MARKUP_SVG,
+    'version' => 5,
+  ]
+);
+
+$qrcode = (new QRCode($options))->render('https://pemdespengadang.000webhostapp.com/lapor');
+?>
 <!DOCTYPE html>
 <html lang="id">
 
@@ -12,12 +31,28 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <!-- Main Styles CSS -->
     <link href="css/style.css" rel="stylesheet">
+    <style>
+    * {
+    box-sizing: border-box;
+    }
+
+    .column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+    }
+
+    /* Clearfix (clear floats) */
+    .row::after {
+    content: "";
+    clear: both;
+    display: table;
+    }
+</style>
 
 </head>
 
 <body>
-
-        <div class="shadow">
             <nav class="navbar navbar-inverse navbar-fixed form-shadow">
                 <!-- container-fluid -->
                 <div class="container-fluid">
@@ -43,13 +78,13 @@
                             <li><a href="cara">CARA</a></li>
                             <li><a href="profildinas">PROFIL DINAS</a></li>
                             <li><a href="faq">FAQ</a></li>
-                            <li><a href="qr.php">qr</a></li>
                             <li><a href="bantuan">BANTUAN</a></li>
                             <li><a href="kontak">KONTAK</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
-            </nav>        <nav class="navbar navbar-inverse navbar-fixed form-shadow">
+            </nav>        
+            <nav class="navbar navbar-inverse navbar-fixed form-shadow">
                 <!-- container-fluid -->
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
@@ -64,7 +99,6 @@
                             <img alt="Brand" src="images/loteng.jpg">
                         </a>
                     </div>
-    
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav nav-link">
@@ -95,7 +129,6 @@
                             <img alt="Brand" src="images/loteng.jpg">
                         </a>
                     </div>
-    
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav nav-link">
@@ -104,90 +137,22 @@
                             <li><a href="lihat">LIHAT PENGADUAN</a></li>
                             <li><a href="cara">CARA</a></li>
                             <li><a href="profildinas">PROFIL DINAS</a></li>
-                            <li><a href="qr.php">qr</a></li>
                             <li><a href="bantuan">BANTUAN</a></li>
                             <li><a href="kontak">KONTAK</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
             </nav>
-
             <!-- content -->
-            <div class="main-content">
-
-                <h3>Cara Melapor</h3>
-                <hr/>
-                <img class="img-cara img-responsive card-shadow-2" src="images/cara.png" alt="">
-                <br>
-        		<ol>
-        			<li><p>Klik menu &quot;Lapor&quot; untuk merekam pengaduan baru.</p></li>
-        			<li><p>Isi form Tambah Pengaduan sesuai informasi yang Anda ketahui.</p></li>
-        			<li>
-                        <p>Perhatikan beberapa hal di bawah ini :
-                            <br>- Semua kotak yang ada wajib diisi.
-                            <br>- Pastikan informasi yang diberikan sedapat mungkin memenuhi unsur 4W 1H.
-                        </p>
-                    </li>
-        			<!-- <li>
-                        <p>Jika Anda memiliki bukti dalam bentuk file seperti foto, silakan dilengkapi di halaman pengaduan, caranya:
-                        <br />Setelah membaca petunjuk untuk menyertakan lampiran, klik kotak kecil di bawah petunjuk tersebut,
-                        dan lanjutkan prosesnya.
-                        </p>
-                    </li> -->
-        			<li>
-                        <p>Setelah selesai mengisi, silakan klik tombol &quot;Kirim Pengaduan&quot;
-                        untuk melanjutkan proses pelaporan Anda.
-                        </p>
-                    </li>
-        			<li>
-                        <p>
-                            Catat dan Simpan dengan baik nomor pengaduan yang Anda peroleh saat membuat
-                            pengaduan untuk mengetahui status/tindak lanjut pengaduan yang Anda sampaikan.
-                        </p>
-                    </li>
-        			<li><p>
-                        Untuk Bantuan mengenai cara melaporkan pengaduan, bisa dilihat di menu <strong><a href="bantuan">Bantuan</a></strong>
-                        yang telah tersedia di aplikasi.
-                        </p>
-                    </li>
-        			<li>
-                        <p>
-                            Pemdes Pengadang akan menghubungi Anda melalui saluran yang telah Anda
-                            cantumkan dalam form pengaduan apabila pengaduan yang Anda sampaikan belum
-                            memenuhi kriteria untuk ditindaklanjuti.
-                        </p>
-                    </li>
-        		</ol>
-
-                <!-- link to top -->
-                <a id="top" href="#" onclick="topFunction()">
-                    <i class="fa fa-arrow-circle-up"></i>
-                </a>
-                <script>
-                    // When the user scrolls down 100px from the top of the document, show the button
-                    window.onscroll = function() {scrollFunction()};
-                    function scrollFunction() {
-                        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                            document.getElementById("top").style.display = "block";
-                        } else {
-                            document.getElementById("top").style.display = "none";
-                        }
-                    }
-
-                    // When the user clicks on the button, scroll to the top of the document
-                    function topFunction() {
-                        document.body.scrollTop = 0;
-                        document.documentElement.scrollTop = 0;
-                    }
-                </script>
-                <!-- link to top -->
-
-
-            <!-- end main-content -->
+            <div class="row">
+                <div class="column">
+                <img src='<?= $qrcode ?>' alt='QR Code' width='250px' height='500px'>
+                </div>
             </div>
-
-            <hr>
-
+            <div class="row text-center">
+            <img src="images/scan.png" height="500", width="500">
+            </div>
+               
             <!-- Footer -->
             <footer class="footer text-center">
                 <div class="row">

@@ -56,7 +56,6 @@
                         <li><a href="lihat">LIHAT PENGADUAN</a></li>
                         <li><a href="cara">CARA</a></li>
                         <li><a href="profildinas">PROFIL DINAS</a></li>
-                        <li><a href="qr.php">qr</a></li>
                         <li><a href="bantuan">BANTUAN</a></li>
                         <li><a href="kontak">KONTAK</a></li>
                     </ul>
@@ -129,9 +128,7 @@
                                     <div class="input-group-addon"><span class="glyphicon glyphicon-random"></span></div>
                                     <select class="form-control" name="tujuan">
                                         <option value="1">Pelayanan  Penduduk</option>
-                                        <option value="2">Pelayanan 2</option>
-                                        <option value="3">Pengelolaan Informasi Administrasi </option>
-                                        <option value="4">Pemanfaatan Data Dan Inovasi Pelayanan</option>
+                                        <option value="2">kasi kesejahteraan</option>
                                     </select>
                                 </div>
                             </div>
@@ -151,8 +148,10 @@
                                 <input id="submit" name="submit" type="submit" value="Kirim Pengaduan" class="btn btn-primary-custom form-shadow">
                             </div>
                         </div>
+                        </div>
                         <div class="form-group">
                             <div class="col-sm-10 col-sm-offset-2">
+                                <a href="lihat.php">*klik disini jika anda sudah melapor</a>
                                 <p class="error"><em>* Catat Nomor Pengaduan Untuk Melihat Status Pengaduan</em></p>
                             </div>
                         </div>

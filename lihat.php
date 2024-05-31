@@ -106,7 +106,6 @@ if(isset($_POST['submit'])) {
                         <li><a href="lihat">LIHAT PENGADUAN</a></li>
                         <li><a href="cara">CARA</a></li>
                         <li><a href="profildinas">PROFIL DINAS</a></li>
-                        <li><a href="qr.php">qr</a></li>
                         <li><a href="bantuan">BANTUAN</a></li>
                         <li><a href="kontak">KONTAK</a></li>
                     </ul>
